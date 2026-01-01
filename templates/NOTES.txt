@@ -1,0 +1,15 @@
+Uptime Kuma installé !
+
+Type de Service: {{ .Values.service.type }}
+URL locale:
+{{- if eq .Values.service.type "NodePort" -}}
+  http://<NodeIP>:{{ .Values.service.nodePort | default "<auto>" }}
+  (kubectl get nodes -o wide)
+{{- else if eq .Values.service.type "LoadBalancer" -}}
+  http://{{ .Release.Name }} EXTERNAL-IP:{{ .Values.service.port }}
+  (kubectl -n {{ .Release.Namespace }} get svc {{ include "uptime-kuma.fullname" . }})
+{{- else -}}
+  Port-forward:
+  kubectl -n {{ .Release.Namespace }} port-forward svc/{{ include "uptime-kuma.fullname" . }} 3001:{{ .Values.service.port }}
+  http://localhost:3001
+{{- end }}

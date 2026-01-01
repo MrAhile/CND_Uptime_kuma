@@ -1,0 +1,14 @@
+image:
+  repository: louislam/uptime-kuma
+  tag: "1.23.13-debian"
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 3001
+  nodePort: 30001
+
+persistence:
+  enabled: true
+  size: 2Gi

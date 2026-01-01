@@ -1,0 +1,6 @@
+apiVersion: v2
+name: uptime-kuma
+description: Uptime Kuma - simple, self-hosted monitoring (Helm chart perso)
+type: application
+version: 0.1.0            # version du chart
+appVersion: "1.23.13"     # version applicative
