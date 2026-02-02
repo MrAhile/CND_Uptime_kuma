@@ -95,5 +95,6 @@ kubectl scale --replicas=1 deploy/nginx-demo -n monitoring
 ### 🔍 Aide & Debug
 
 * **Alias :** `alias k="kubectl"`
+* **Set Namespace :** `kubectl config set-context --current --namespace=monitoring`
 * **Logs :** `k logs -f deploy/uptime-kuma -n monitoring`
 * **Pods :** `k get po -n monitoring`
