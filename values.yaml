@@ -1,14 +1,13 @@
 image:
   repository: louislam/uptime-kuma
-  tag: "1.23.13-debian"
-  pullPolicy: IfNotPresent
+  tag: "1.23.13-debian" # Version fixe pour l'idempotence
 
 service:
   type: NodePort
-  port: 80
-  targetPort: 3001
-  nodePort: 30001
+  port: 80              # Port interne (DNS)
+  targetPort: 3001      # Port du container
+  nodePort: 30001       # Port externe (Browser)
 
 persistence:
-  enabled: true
+  enabled: true         # Survie aux redémarrages
   size: 2Gi
