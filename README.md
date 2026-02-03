@@ -15,12 +15,6 @@ helm repo add uptime-kuma https://dirsigler.github.io/uptime-kuma-helm/
 helm repo update
 ```
 
-**Déploiement du service de test (Nginx) :**
-
-```bash
-kubectl apply -f setup-demo.yaml
-```
-
 ---
 
 ## 🏗️ 2. Déploiement d'Uptime Kuma
@@ -34,6 +28,12 @@ helm upgrade --install uptime-kuma uptime-kuma/uptime-kuma \
   -f values.yaml
 ```
 
+
+**Déploiement du service de test (Nginx) :**
+
+```bash
+kubectl apply -f setup-demo.yaml
+```
 ---
 
 ## 🌐 3. Configuration des Sondes
@@ -94,7 +94,11 @@ kubectl scale --replicas=1 deploy/nginx-demo -n monitoring
 
 ### 🔍 Aide & Debug
 
-* **Alias :** `alias k="kubectl"`
-* **Set Namespace :** `kubectl config set-context --current --namespace=monitoring`
-* **Logs :** `k logs -f deploy/uptime-kuma -n monitoring`
-* **Pods :** `k get po -n monitoring`
+* **Alias :**
+  `alias k="kubectl"`
+* **Set Namespace :**
+  `kubectl config set-context --current --namespace=monitoring`
+* **Logs :**
+  `k logs -f deploy/uptime-kuma -n monitoring`
+* **Pods :**
+  `k get po -n monitoring`

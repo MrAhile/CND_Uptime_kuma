@@ -10,4 +10,4 @@ service:
 
 persistence:
   enabled: true         # Survie aux redémarrages
-  size: 2Gi
+  size: 1Gi
